@@ -1,0 +1,362 @@
+[Step 1/11] Parsing and validating input arguments
+[ INFO ] Parsing input parameters
+[Step 2/11] Loading OpenVINO Runtime
+[ INFO ] OpenVINO:
+[ INFO ] Build ................................. 2025.4.0-19881-0a49c3257ff
+[ INFO ] 
+[ INFO ] Device info:
+[ INFO ] CPU
+[ INFO ] Build ................................. 2025.4.0-19881-0a49c3257ff
+[ INFO ] 
+[ INFO ] 
+[Step 3/11] Setting device configuration
+[ WARNING ] Performance hint was not explicitly specified in command line. Device(CPU) performance hint will be set to LATENCY.
+[Step 4/11] Reading model files
+[ INFO ] Loading model files
+[ INFO ] Read model took 56.73 ms
+[ INFO ] Original model I/O parameters:
+[ INFO ] Network inputs:
+[ INFO ]     images (node: images) : f32 / [...] / [1,3,640,640]
+[ INFO ] Network outputs:
+[ INFO ]     output0 (node: output0) : f32 / [...] / [1,84,8400]
+[Step 5/11] Resizing model to match image sizes and given batch
+[ WARNING ] images: layout is not set explicitly, so it is defaulted to NCHW. It is STRONGLY recommended to set layout manually to avoid further issues.
+[Step 6/11] Configuring input of the model
+[ INFO ] Model batch size: 1
+[ INFO ] Network inputs:
+[ INFO ]     images (node: images) : u8 / [N,C,H,W] / [1,3,640,640]
+[ INFO ] Network outputs:
+[ INFO ]     output0 (node: output0) : f32 / [...] / [1,84,8400]
+[Step 7/11] Loading the model to the device
+[ INFO ] Compile model took 1352.16 ms
+[ INFO ] Start of compilation memory usage: Peak 225240 KB
+[ INFO ] End of compilation memory usage: Peak 730604 KB
+[ INFO ] Compile model ram used 505364 KB
+[Step 8/11] Querying optimal runtime parameters
+[ INFO ] Model:
+[ INFO ]   NETWORK_NAME: main_graph
+[ INFO ]   OPTIMAL_NUMBER_OF_INFER_REQUESTS: 1
+[ INFO ]   NUM_STREAMS: 1
+[ INFO ]   INFERENCE_NUM_THREADS: 6
+[ INFO ]   PERF_COUNT: YES
+[ INFO ]   INFERENCE_PRECISION_HINT: f32
+[ INFO ]   PERFORMANCE_HINT: LATENCY
+[ INFO ]   EXECUTION_MODE_HINT: PERFORMANCE
+[ INFO ]   PERFORMANCE_HINT_NUM_REQUESTS: 0
+[ INFO ]   ENABLE_CPU_PINNING: YES
+[ INFO ]   ENABLE_CPU_RESERVATION: NO
+[ INFO ]   SCHEDULING_CORE_TYPE: ANY_CORE
+[ INFO ]   MODEL_DISTRIBUTION_POLICY: 
+[ INFO ]   ENABLE_HYPER_THREADING: NO
+[ INFO ]   EXECUTION_DEVICES: CPU
+[ INFO ]   CPU_DENORMALS_OPTIMIZATION: NO
+[ INFO ]   LOG_LEVEL: LOG_NONE
+[ INFO ]   CPU_SPARSE_WEIGHTS_DECOMPRESSION_RATE: 1
+[ INFO ]   ENABLE_TENSOR_PARALLEL: NO
+[ INFO ]   DYNAMIC_QUANTIZATION_GROUP_SIZE: 32
+[ INFO ]   KV_CACHE_PRECISION: u8
+[ INFO ]   KEY_CACHE_PRECISION: u8
+[ INFO ]   VALUE_CACHE_PRECISION: u8
+[ INFO ]   KEY_CACHE_GROUP_SIZE: 0
+[ INFO ]   VALUE_CACHE_GROUP_SIZE: 0
+[Step 9/11] Creating infer requests and preparing input tensors
+[ WARNING ] No input files were given: all inputs will be filled with random values!
+[ INFO ] Test Config 0
+[ INFO ] images  ([N,C,H,W], u8, [1,3,640,640], static):	random (image/numpy array is expected)
+[Step 10/11] Measuring performance (Start inference synchronously, limits: 60000 ms duration)
+[ INFO ] Benchmarking in inference only mode (inputs filling are not included in measurement loop).
+[ INFO ] First inference took 22.17 ms
+[Step 11/11] Dumping statistics report
+[ INFO ] Performance counts for 0-th infer request:
+images               NOT_RUN              layerType: Parameter            execType: unknown_I8           realTime (ms): 0.000      cpuTime (ms): 0.000      
+images_Quantize...   EXECUTED             layerType: Subgraph             execType: jit_avx2_I8          realTime (ms): 0.105      cpuTime (ms): 0.105      
+images_Quantize...   EXECUTED             layerType: Reorder              execType: jit_uni_I8           realTime (ms): 0.103      cpuTime (ms): 0.103      
+/model.0/conv/C...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.225      cpuTime (ms): 0.225      
+/model.0/conv/C...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.0/act/Mu...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.807      cpuTime (ms): 0.807      
+/model.1/conv/C...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.320      cpuTime (ms): 0.320      
+/model.1/conv/C...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.1/act/Mu...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.392      cpuTime (ms): 0.392      
+/model.2/cv1/co...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.112      cpuTime (ms): 0.112      
+/model.2/cv1/co...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.2/cv1/ac...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.455      cpuTime (ms): 0.455      
+/model.2/Split       EXECUTED             layerType: VariadicSplit        execType: ref_i8               realTime (ms): 0.039      cpuTime (ms): 0.039      
+/model.2/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.101      cpuTime (ms): 0.101      
+/model.2/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.080      cpuTime (ms): 0.080      
+/model.2/m.0/cv...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.164      cpuTime (ms): 0.164      
+/model.2/m.0/cv...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.2/m.0/cv...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.204      cpuTime (ms): 0.204      
+/model.2/m.0/cv...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.160      cpuTime (ms): 0.160      
+/model.2/m.0/cv...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.2/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_I8          realTime (ms): 0.403      cpuTime (ms): 0.403      
+/model.2/Concat      EXECUTED             layerType: Concat               execType: ref_I8               realTime (ms): 0.056      cpuTime (ms): 0.056      
+/model.2/cv2/co...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.143      cpuTime (ms): 0.143      
+/model.2/cv2/co...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.2/cv2/ac...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.403      cpuTime (ms): 0.403      
+/model.3/conv/C...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.295      cpuTime (ms): 0.295      
+/model.3/conv/C...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.3/act/Mu...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.209      cpuTime (ms): 0.209      
+/model.4/cv1/co...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.090      cpuTime (ms): 0.090      
+/model.4/cv1/co...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.4/cv1/ac...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.237      cpuTime (ms): 0.237      
+/model.4/Split       EXECUTED             layerType: VariadicSplit        execType: ref_i8               realTime (ms): 0.016      cpuTime (ms): 0.016      
+/model.4/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.054      cpuTime (ms): 0.054      
+/model.4/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.043      cpuTime (ms): 0.043      
+/model.4/m.0/cv...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.154      cpuTime (ms): 0.154      
+/model.4/m.0/cv...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.4/m.0/cv...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.106      cpuTime (ms): 0.106      
+/model.4/m.0/cv...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.154      cpuTime (ms): 0.154      
+/model.4/m.0/cv...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.4/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_I8          realTime (ms): 0.191      cpuTime (ms): 0.191      
+/model.4/m.1/cv...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.154      cpuTime (ms): 0.154      
+/model.4/m.1/cv...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.4/m.1/cv...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.107      cpuTime (ms): 0.107      
+/model.4/m.1/cv...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.152      cpuTime (ms): 0.152      
+/model.4/m.1/cv...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.4/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_I8          realTime (ms): 0.207      cpuTime (ms): 0.207      
+/model.4/Concat      EXECUTED             layerType: Concat               execType: ref_I8               realTime (ms): 0.023      cpuTime (ms): 0.023      
+/model.4/cv2/co...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.146      cpuTime (ms): 0.146      
+/model.4/cv2/co...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.14/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.288      cpuTime (ms): 0.288      
+/model.5/conv/C...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.285      cpuTime (ms): 0.285      
+/model.5/conv/C...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.5/act/Mu...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.105      cpuTime (ms): 0.105      
+/model.6/cv1/co...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.078      cpuTime (ms): 0.078      
+/model.6/cv1/co...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.6/cv1/ac...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.118      cpuTime (ms): 0.118      
+/model.6/Split       EXECUTED             layerType: VariadicSplit        execType: ref_i8               realTime (ms): 0.009      cpuTime (ms): 0.009      
+/model.6/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.028      cpuTime (ms): 0.028      
+/model.6/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.022      cpuTime (ms): 0.022      
+/model.6/m.0/cv...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.149      cpuTime (ms): 0.149      
+/model.6/m.0/cv...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.6/m.0/cv...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.055      cpuTime (ms): 0.055      
+/model.6/m.0/cv...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.149      cpuTime (ms): 0.149      
+/model.6/m.0/cv...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.6/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_I8          realTime (ms): 0.097      cpuTime (ms): 0.097      
+/model.6/m.1/cv...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.149      cpuTime (ms): 0.149      
+/model.6/m.1/cv...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.6/m.1/cv...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.055      cpuTime (ms): 0.055      
+/model.6/m.1/cv...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.149      cpuTime (ms): 0.149      
+/model.6/m.1/cv...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.6/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_I8          realTime (ms): 0.106      cpuTime (ms): 0.106      
+/model.6/Concat      EXECUTED             layerType: Concat               execType: ref_I8               realTime (ms): 0.013      cpuTime (ms): 0.013      
+/model.6/cv2/co...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.137      cpuTime (ms): 0.137      
+/model.6/cv2/co...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.11/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.144      cpuTime (ms): 0.144      
+/model.7/conv/C...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.298      cpuTime (ms): 0.298      
+/model.7/conv/C...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.7/act/Mu...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.060      cpuTime (ms): 0.060      
+/model.8/cv1/co...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.074      cpuTime (ms): 0.074      
+/model.8/cv1/co...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.8/cv1/ac...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.064      cpuTime (ms): 0.064      
+/model.8/Split       EXECUTED             layerType: VariadicSplit        execType: ref_i8               realTime (ms): 0.005      cpuTime (ms): 0.005      
+/model.8/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.016      cpuTime (ms): 0.016      
+/model.8/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.013      cpuTime (ms): 0.013      
+/model.8/m.0/cv...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.157      cpuTime (ms): 0.157      
+/model.8/m.0/cv...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.8/m.0/cv...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.033      cpuTime (ms): 0.033      
+/model.8/m.0/cv...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.155      cpuTime (ms): 0.155      
+/model.8/m.0/cv...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.8/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_I8          realTime (ms): 0.060      cpuTime (ms): 0.060      
+/model.8/Concat      EXECUTED             layerType: Concat               execType: ref_I8               realTime (ms): 0.007      cpuTime (ms): 0.007      
+/model.8/cv2/co...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.108      cpuTime (ms): 0.108      
+/model.8/cv2/co...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.8/cv2/ac...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.060      cpuTime (ms): 0.060      
+/model.9/cv1/co...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.040      cpuTime (ms): 0.040      
+/model.9/cv1/co...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.9/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.048      cpuTime (ms): 0.048      
+/model.9/m/MaxPool   EXECUTED             layerType: MaxPool              execType: jit_avx2_i8          realTime (ms): 0.014      cpuTime (ms): 0.014      
+/model.9/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.016      cpuTime (ms): 0.016      
+/model.9/m_1/Ma...   EXECUTED             layerType: MaxPool              execType: jit_avx2_i8          realTime (ms): 0.011      cpuTime (ms): 0.011      
+/model.9/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.017      cpuTime (ms): 0.017      
+/model.9/m_2/Ma...   EXECUTED             layerType: MaxPool              execType: jit_avx2_i8          realTime (ms): 0.011      cpuTime (ms): 0.011      
+/model.9/Concat...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.013      cpuTime (ms): 0.013      
+/model.9/Concat      EXECUTED             layerType: Concat               execType: ref_I8               realTime (ms): 0.007      cpuTime (ms): 0.007      
+/model.9/cv2/co...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.133      cpuTime (ms): 0.133      
+/model.9/cv2/co...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+Subtract_3329        EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.071      cpuTime (ms): 0.071      
+/model.10/Resize     EXECUTED             layerType: Interpolate          execType: jit_avx2_i8          realTime (ms): 0.019      cpuTime (ms): 0.019      
+/model.11/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.100      cpuTime (ms): 0.100      
+/model.11/Concat     EXECUTED             layerType: Concat               execType: ref_I8               realTime (ms): 0.012      cpuTime (ms): 0.012      
+/model.12/cv1/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.196      cpuTime (ms): 0.196      
+/model.12/cv1/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.12/cv1/a...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.118      cpuTime (ms): 0.118      
+/model.12/Split      EXECUTED             layerType: VariadicSplit        execType: ref_i8               realTime (ms): 0.009      cpuTime (ms): 0.009      
+/model.12/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.028      cpuTime (ms): 0.028      
+/model.12/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.022      cpuTime (ms): 0.022      
+/model.12/m.0/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.149      cpuTime (ms): 0.149      
+/model.12/m.0/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.12/m.0/c...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.054      cpuTime (ms): 0.054      
+/model.12/m.0/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.149      cpuTime (ms): 0.149      
+/model.12/m.0/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.12/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.084      cpuTime (ms): 0.084      
+/model.12/Concat     EXECUTED             layerType: Concat               execType: ref_I8               realTime (ms): 0.010      cpuTime (ms): 0.010      
+/model.12/cv2/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.108      cpuTime (ms): 0.108      
+/model.12/cv2/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+Subtract_3650        EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.126      cpuTime (ms): 0.126      
+/model.13/Resize     EXECUTED             layerType: Interpolate          execType: jit_avx2_i8          realTime (ms): 0.031      cpuTime (ms): 0.031      
+/model.14/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.202      cpuTime (ms): 0.202      
+/model.14/Concat     EXECUTED             layerType: Concat               execType: ref_I8               realTime (ms): 0.024      cpuTime (ms): 0.024      
+/model.15/cv1/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.205      cpuTime (ms): 0.205      
+/model.15/cv1/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.15/cv1/a...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.236      cpuTime (ms): 0.236      
+/model.15/Split      EXECUTED             layerType: VariadicSplit        execType: ref_i8               realTime (ms): 0.016      cpuTime (ms): 0.016      
+/model.15/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.054      cpuTime (ms): 0.054      
+/model.15/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.042      cpuTime (ms): 0.042      
+/model.15/m.0/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.153      cpuTime (ms): 0.153      
+/model.15/m.0/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.15/m.0/c...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.106      cpuTime (ms): 0.106      
+/model.15/m.0/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.152      cpuTime (ms): 0.152      
+/model.15/m.0/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.15/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.165      cpuTime (ms): 0.165      
+/model.15/Concat     EXECUTED             layerType: Concat               execType: ref_I8               realTime (ms): 0.018      cpuTime (ms): 0.018      
+/model.15/cv2/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.117      cpuTime (ms): 0.117      
+/model.15/cv2/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.15/cv2/a...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.208      cpuTime (ms): 0.208      
+/model.22/cv2.0...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.549      cpuTime (ms): 0.549      
+/model.22/cv2.0...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/cv2.0...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.209      cpuTime (ms): 0.209      
+/model.22/cv2.0...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.548      cpuTime (ms): 0.548      
+/model.22/cv2.0...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/cv2.0...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.209      cpuTime (ms): 0.209      
+/model.22/cv2.0...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.089      cpuTime (ms): 0.089      
+/model.22/cv2.0...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.043      cpuTime (ms): 0.043      
+/model.22/cv3.0...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.686      cpuTime (ms): 0.686      
+/model.22/cv3.0...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/cv3.0...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.261      cpuTime (ms): 0.261      
+/model.22/cv3.0...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.853      cpuTime (ms): 0.853      
+/model.22/cv3.0...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/cv3.0...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.264      cpuTime (ms): 0.264      
+/model.22/cv3.0...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.129      cpuTime (ms): 0.129      
+/model.22/cv3.0...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.054      cpuTime (ms): 0.054      
+/model.22/Concat     EXECUTED             layerType: Concat               execType: ref_i8               realTime (ms): 0.023      cpuTime (ms): 0.023      
+/model.22/Conca...   EXECUTED             layerType: Reorder              execType: jit_uni_i8           realTime (ms): 0.405      cpuTime (ms): 0.405      
+/model.22/Reshape    NOT_RUN              layerType: Reshape              execType: unknown_i8           realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.226      cpuTime (ms): 0.226      
+/model.16/conv/...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.160      cpuTime (ms): 0.160      
+/model.16/conv/...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.17/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.085      cpuTime (ms): 0.085      
+/model.17/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.030      cpuTime (ms): 0.030      
+/model.17/Concat     EXECUTED             layerType: Concat               execType: ref_I8               realTime (ms): 0.010      cpuTime (ms): 0.010      
+/model.18/cv1/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.108      cpuTime (ms): 0.108      
+/model.18/cv1/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.18/cv1/a...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.120      cpuTime (ms): 0.120      
+/model.18/Split      EXECUTED             layerType: VariadicSplit        execType: ref_i8               realTime (ms): 0.009      cpuTime (ms): 0.009      
+/model.18/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.028      cpuTime (ms): 0.028      
+/model.18/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.023      cpuTime (ms): 0.023      
+/model.18/m.0/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.150      cpuTime (ms): 0.150      
+/model.18/m.0/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.18/m.0/c...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.054      cpuTime (ms): 0.054      
+/model.18/m.0/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.150      cpuTime (ms): 0.150      
+/model.18/m.0/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.18/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.094      cpuTime (ms): 0.094      
+/model.18/Concat     EXECUTED             layerType: Concat               execType: ref_I8               realTime (ms): 0.009      cpuTime (ms): 0.009      
+/model.18/cv2/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.108      cpuTime (ms): 0.108      
+/model.18/cv2/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.18/cv2/a...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.106      cpuTime (ms): 0.106      
+/model.22/cv2.1...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.290      cpuTime (ms): 0.290      
+/model.22/cv2.1...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/cv2.1...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.055      cpuTime (ms): 0.055      
+/model.22/cv2.1...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.150      cpuTime (ms): 0.150      
+/model.22/cv2.1...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/cv2.1...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.055      cpuTime (ms): 0.055      
+/model.22/cv2.1...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.028      cpuTime (ms): 0.028      
+/model.22/cv2.1...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.013      cpuTime (ms): 0.013      
+/model.22/cv3.1...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.348      cpuTime (ms): 0.348      
+/model.22/cv3.1...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/cv3.1...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.068      cpuTime (ms): 0.068      
+/model.22/cv3.1...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.224      cpuTime (ms): 0.224      
+/model.22/cv3.1...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/cv3.1...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.068      cpuTime (ms): 0.068      
+/model.22/cv3.1...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.038      cpuTime (ms): 0.038      
+/model.22/cv3.1...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.015      cpuTime (ms): 0.015      
+/model.22/Concat_1   EXECUTED             layerType: Concat               execType: ref_i8               realTime (ms): 0.007      cpuTime (ms): 0.007      
+/model.22/Conca...   EXECUTED             layerType: Reorder              execType: jit_uni_i8           realTime (ms): 0.057      cpuTime (ms): 0.057      
+/model.22/Reshape_1  NOT_RUN              layerType: Reshape              execType: unknown_i8           realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.059      cpuTime (ms): 0.059      
+/model.19/conv/...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.157      cpuTime (ms): 0.157      
+/model.19/conv/...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.20/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.049      cpuTime (ms): 0.049      
+/model.20/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.019      cpuTime (ms): 0.019      
+/model.20/Concat     EXECUTED             layerType: Concat               execType: ref_I8               realTime (ms): 0.006      cpuTime (ms): 0.006      
+/model.21/cv1/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.108      cpuTime (ms): 0.108      
+/model.21/cv1/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.21/cv1/a...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.069      cpuTime (ms): 0.069      
+/model.21/Split      EXECUTED             layerType: VariadicSplit        execType: ref_i8               realTime (ms): 0.006      cpuTime (ms): 0.006      
+/model.21/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.017      cpuTime (ms): 0.017      
+/model.21/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.013      cpuTime (ms): 0.013      
+/model.21/m.0/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.157      cpuTime (ms): 0.157      
+/model.21/m.0/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.21/m.0/c...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.032      cpuTime (ms): 0.032      
+/model.21/m.0/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.157      cpuTime (ms): 0.157      
+/model.21/m.0/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.21/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.049      cpuTime (ms): 0.049      
+/model.21/Concat     EXECUTED             layerType: Concat               execType: ref_I8               realTime (ms): 0.006      cpuTime (ms): 0.006      
+/model.21/cv2/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.107      cpuTime (ms): 0.107      
+/model.21/cv2/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.21/cv2/a...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.061      cpuTime (ms): 0.061      
+/model.22/cv2.2...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.157      cpuTime (ms): 0.157      
+/model.22/cv2.2...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/cv2.2...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.017      cpuTime (ms): 0.017      
+/model.22/cv2.2...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.044      cpuTime (ms): 0.044      
+/model.22/cv2.2...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/cv2.2...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.017      cpuTime (ms): 0.017      
+/model.22/cv2.2...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.012      cpuTime (ms): 0.012      
+/model.22/cv2.2...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.005      cpuTime (ms): 0.005      
+/model.22/cv3.2...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.187      cpuTime (ms): 0.187      
+/model.22/cv3.2...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/cv3.2...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.021      cpuTime (ms): 0.021      
+/model.22/cv3.2...   EXECUTED             layerType: Convolution          execType: jit_avx2_I8          realTime (ms): 0.064      cpuTime (ms): 0.064      
+/model.22/cv3.2...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/cv3.2...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.021      cpuTime (ms): 0.021      
+/model.22/cv3.2...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.015      cpuTime (ms): 0.015      
+/model.22/cv3.2...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.006      cpuTime (ms): 0.006      
+/model.22/Concat_2   EXECUTED             layerType: Concat               execType: ref_i8               realTime (ms): 0.004      cpuTime (ms): 0.004      
+/model.22/Conca...   EXECUTED             layerType: Reorder              execType: jit_uni_i8           realTime (ms): 0.011      cpuTime (ms): 0.011      
+/model.22/Reshape_2  NOT_RUN              layerType: Reshape              execType: unknown_i8           realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.017      cpuTime (ms): 0.017      
+/model.22/Concat_3   EXECUTED             layerType: Concat               execType: ref_i8               realTime (ms): 0.040      cpuTime (ms): 0.040      
+/model.22/Split      NOT_RUN              layerType: VariadicSplit        execType: unknown_i8           realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/Split...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.056      cpuTime (ms): 0.056      
+/model.22/dfl/R...   NOT_RUN              layerType: Reshape              execType: unknown_i8           realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/dfl/R...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.055      cpuTime (ms): 0.055      
+/model.22/dfl/T...   EXECUTED             layerType: Transpose            execType: jit_uni_i8           realTime (ms): 0.061      cpuTime (ms): 0.061      
+/model.22/dfl/T...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.054      cpuTime (ms): 0.054      
+/model.22/dfl/S...   EXECUTED             layerType: Softmax              execType: jit_avx2_f32         realTime (ms): 0.272      cpuTime (ms): 0.272      
+/model.22/dfl/S...   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.055      cpuTime (ms): 0.055      
+/model.22/dfl/T...   EXECUTED             layerType: Transpose            execType: unknown_i8           realTime (ms): 0.188      cpuTime (ms): 0.188      
+/model.22/dfl/T...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.056      cpuTime (ms): 0.056      
+/model.22/dfl/T...   EXECUTED             layerType: Reorder              execType: jit_uni_I8           realTime (ms): 0.052      cpuTime (ms): 0.052      
+/model.22/dfl/c...   EXECUTED             layerType: Convolution          execType: jit_avx2_1x1_I8      realTime (ms): 0.031      cpuTime (ms): 0.031      
+/model.22/dfl/c...   NOT_RUN              layerType: FakeQuantize         execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/dfl/c...   NOT_RUN              layerType: Reorder              execType: reorder_i8           realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/dfl/R...   NOT_RUN              layerType: Reshape              execType: unknown_i8           realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/dfl/R...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.007      cpuTime (ms): 0.007      
+VariadicSplit_27822  NOT_RUN              layerType: VariadicSplit        execType: unknown_i8           realTime (ms): 0.000      cpuTime (ms): 0.000      
+/model.22/Conca...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.063      cpuTime (ms): 0.063      
+/model.22/Concat_4   NOT_RUN              layerType: Concat               execType: unknown_i8           realTime (ms): 0.000      cpuTime (ms): 0.000      
+output0_Quantiz...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.015      cpuTime (ms): 0.015      
+output0_Quantiz...   EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.477      cpuTime (ms): 0.477      
+output0_original     NOT_RUN              layerType: Concat               execType: unknown_i8           realTime (ms): 0.000      cpuTime (ms): 0.000      
+output0              EXECUTED             layerType: Subgraph             execType: jit_avx2_i8          realTime (ms): 0.162      cpuTime (ms): 0.162      
+output0/sink_port_0  NOT_RUN              layerType: Result               execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+Total time:              23.672 milliseconds
+Total CPU time:          23.672 milliseconds
+
+Full device name: Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+
+[ INFO ] Execution Devices: [ CPU ]
+[ INFO ] Count:               2507 iterations
+[ INFO ] Duration:            60001.73 ms
+[ INFO ] Latency:
+[ INFO ]    Median:           23.86 ms
+[ INFO ]    Average:          23.93 ms
+[ INFO ]    Min:              20.71 ms
+[ INFO ]    Max:              37.97 ms
+[ INFO ] Throughput:          41.78 FPS

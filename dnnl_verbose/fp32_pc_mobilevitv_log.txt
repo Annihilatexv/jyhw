@@ -1,0 +1,424 @@
+[Step 1/11] Parsing and validating input arguments
+[ INFO ] Parsing input parameters
+[Step 2/11] Loading OpenVINO Runtime
+[ INFO ] OpenVINO:
+[ INFO ] Build ................................. 2025.4.0-19881-0a49c3257ff
+[ INFO ] 
+[ INFO ] Device info:
+[ INFO ] CPU
+[ INFO ] Build ................................. 2025.4.0-19881-0a49c3257ff
+[ INFO ] 
+[ INFO ] 
+[Step 3/11] Setting device configuration
+[ WARNING ] Performance hint was not explicitly specified in command line. Device(CPU) performance hint will be set to LATENCY.
+[Step 4/11] Reading model files
+[ INFO ] Loading model files
+[ INFO ] Read model took 32.80 ms
+[ INFO ] Original model I/O parameters:
+[ INFO ] Network inputs:
+[ INFO ]     input (node: input) : f32 / [...] / [1,3,256,256]
+[ INFO ] Network outputs:
+[ INFO ]     output (node: output) : f32 / [...] / [1,1000]
+[Step 5/11] Resizing model to match image sizes and given batch
+[ WARNING ] input: layout is not set explicitly, so it is defaulted to NCHW. It is STRONGLY recommended to set layout manually to avoid further issues.
+[Step 6/11] Configuring input of the model
+[ INFO ] Model batch size: 1
+[ INFO ] Network inputs:
+[ INFO ]     input (node: input) : u8 / [N,C,H,W] / [1,3,256,256]
+[ INFO ] Network outputs:
+[ INFO ]     output (node: output) : f32 / [...] / [1,1000]
+[Step 7/11] Loading the model to the device
+[ INFO ] Compile model took 198.12 ms
+[ INFO ] Start of compilation memory usage: Peak 225240 KB
+[ INFO ] End of compilation memory usage: Peak 686780 KB
+[ INFO ] Compile model ram used 461540 KB
+[Step 8/11] Querying optimal runtime parameters
+[ INFO ] Model:
+[ INFO ]   NETWORK_NAME: main_graph
+[ INFO ]   OPTIMAL_NUMBER_OF_INFER_REQUESTS: 1
+[ INFO ]   NUM_STREAMS: 1
+[ INFO ]   INFERENCE_NUM_THREADS: 6
+[ INFO ]   PERF_COUNT: YES
+[ INFO ]   INFERENCE_PRECISION_HINT: f32
+[ INFO ]   PERFORMANCE_HINT: LATENCY
+[ INFO ]   EXECUTION_MODE_HINT: PERFORMANCE
+[ INFO ]   PERFORMANCE_HINT_NUM_REQUESTS: 0
+[ INFO ]   ENABLE_CPU_PINNING: YES
+[ INFO ]   ENABLE_CPU_RESERVATION: NO
+[ INFO ]   SCHEDULING_CORE_TYPE: ANY_CORE
+[ INFO ]   MODEL_DISTRIBUTION_POLICY: 
+[ INFO ]   ENABLE_HYPER_THREADING: NO
+[ INFO ]   EXECUTION_DEVICES: CPU
+[ INFO ]   CPU_DENORMALS_OPTIMIZATION: NO
+[ INFO ]   LOG_LEVEL: LOG_NONE
+[ INFO ]   CPU_SPARSE_WEIGHTS_DECOMPRESSION_RATE: 1
+[ INFO ]   ENABLE_TENSOR_PARALLEL: NO
+[ INFO ]   DYNAMIC_QUANTIZATION_GROUP_SIZE: 32
+[ INFO ]   KV_CACHE_PRECISION: u8
+[ INFO ]   KEY_CACHE_PRECISION: u8
+[ INFO ]   VALUE_CACHE_PRECISION: u8
+[ INFO ]   KEY_CACHE_GROUP_SIZE: 0
+[ INFO ]   VALUE_CACHE_GROUP_SIZE: 0
+[Step 9/11] Creating infer requests and preparing input tensors
+[ WARNING ] No input files were given: all inputs will be filled with random values!
+[ INFO ] Test Config 0
+[ INFO ] input  ([N,C,H,W], u8, [1,3,256,256], static):	random (image/numpy array is expected)
+[Step 10/11] Measuring performance (Start inference synchronously, limits: 60000 ms duration)
+[ INFO ] Benchmarking in inference only mode (inputs filling are not included in measurement loop).
+[ INFO ] First inference took 11.46 ms
+[Step 11/11] Dumping statistics report
+[ INFO ] Performance counts for 0-th infer request:
+input                NOT_RUN              layerType: Parameter            execType: unknown_I8           realTime (ms): 0.000      cpuTime (ms): 0.000      
+Convert_2392         EXECUTED             layerType: Subgraph             execType: jit_avx2_I8          realTime (ms): 0.019      cpuTime (ms): 0.019      
+Convert_2392_ab...   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.026      cpuTime (ms): 0.026      
+/stem/conv/Conv...   EXECUTED             layerType: Convolution          execType: brgconv_avx2_f32     realTime (ms): 0.161      cpuTime (ms): 0.161      
+/stem/bn/act/Mul     NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.274      cpuTime (ms): 0.274      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: GroupConvolution     execType: brgconv_avx2_dw_f32  realTime (ms): 0.284      cpuTime (ms): 0.284      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.183      cpuTime (ms): 0.183      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.104      cpuTime (ms): 0.104      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: jit_avx2_dw_1x1_f32  realTime (ms): 0.773      cpuTime (ms): 0.773      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   NOT_RUN              layerType: GroupConvolution     execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.042      cpuTime (ms): 0.042      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.167      cpuTime (ms): 0.167      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.499      cpuTime (ms): 0.499      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: GroupConvolution     execType: brgconv_avx2_dw_f32  realTime (ms): 0.249      cpuTime (ms): 0.249      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.324      cpuTime (ms): 0.324      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.494      cpuTime (ms): 0.494      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: GroupConvolution     execType: brgconv_avx2_dw_f32  realTime (ms): 0.073      cpuTime (ms): 0.073      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.163      cpuTime (ms): 0.163      
+/stages/stages....   EXECUTED             layerType: GroupConvolution     execType: brgconv_avx2_dw_f32  realTime (ms): 0.068      cpuTime (ms): 0.068      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.084      cpuTime (ms): 0.084      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.028      cpuTime (ms): 0.028      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Transpose            execType: unknown_f32          realTime (ms): 0.021      cpuTime (ms): 0.021      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.006      cpuTime (ms): 0.006      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_639              EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.063      cpuTime (ms): 0.063      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.013      cpuTime (ms): 0.013      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.017      cpuTime (ms): 0.017      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.092      cpuTime (ms): 0.092      
+/stages/stages....   EXECUTED             layerType: VariadicSplit        execType: ref_f32              realTime (ms): 0.475      cpuTime (ms): 0.475      
+/stages/stages....   EXECUTED             layerType: Softmax              execType: jit_avx2_f32         realTime (ms): 0.006      cpuTime (ms): 0.006      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: ReduceSum            execType: jit_avx2_f32         realTime (ms): 0.010      cpuTime (ms): 0.010      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.007      cpuTime (ms): 0.007      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.016      cpuTime (ms): 0.016      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.013      cpuTime (ms): 0.013      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.048      cpuTime (ms): 0.048      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.033      cpuTime (ms): 0.033      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_711              EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.062      cpuTime (ms): 0.062      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.010      cpuTime (ms): 0.010      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.018      cpuTime (ms): 0.018      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.136      cpuTime (ms): 0.136      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.089      cpuTime (ms): 0.089      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.031      cpuTime (ms): 0.031      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_772              EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.062      cpuTime (ms): 0.062      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.011      cpuTime (ms): 0.011      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.016      cpuTime (ms): 0.016      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.094      cpuTime (ms): 0.094      
+/stages/stages....   EXECUTED             layerType: VariadicSplit        execType: ref_f32              realTime (ms): 0.471      cpuTime (ms): 0.471      
+/stages/stages....   EXECUTED             layerType: Softmax              execType: jit_avx2_f32         realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: ReduceSum            execType: jit_avx2_f32         realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.015      cpuTime (ms): 0.015      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.049      cpuTime (ms): 0.049      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.031      cpuTime (ms): 0.031      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_842              EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.062      cpuTime (ms): 0.062      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.015      cpuTime (ms): 0.015      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.016      cpuTime (ms): 0.016      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.138      cpuTime (ms): 0.138      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.089      cpuTime (ms): 0.089      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.030      cpuTime (ms): 0.030      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_903              EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.061      cpuTime (ms): 0.061      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.011      cpuTime (ms): 0.011      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Transpose            execType: unknown_f32          realTime (ms): 0.033      cpuTime (ms): 0.033      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.016      cpuTime (ms): 0.016      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.089      cpuTime (ms): 0.089      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.431      cpuTime (ms): 0.431      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: GroupConvolution     execType: brgconv_avx2_dw_f32  realTime (ms): 0.042      cpuTime (ms): 0.042      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.143      cpuTime (ms): 0.143      
+/stages/stages....   EXECUTED             layerType: GroupConvolution     execType: brgconv_avx2_dw_f32  realTime (ms): 0.031      cpuTime (ms): 0.031      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.056      cpuTime (ms): 0.056      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.008      cpuTime (ms): 0.008      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Transpose            execType: unknown_f32          realTime (ms): 0.010      cpuTime (ms): 0.010      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_1148             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.025      cpuTime (ms): 0.025      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.008      cpuTime (ms): 0.008      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.010      cpuTime (ms): 0.010      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.061      cpuTime (ms): 0.061      
+/stages/stages....   EXECUTED             layerType: VariadicSplit        execType: ref_f32              realTime (ms): 0.087      cpuTime (ms): 0.087      
+/stages/stages....   EXECUTED             layerType: Softmax              execType: jit_avx2_f32         realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: ReduceSum            execType: jit_avx2_f32         realTime (ms): 0.008      cpuTime (ms): 0.008      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.006      cpuTime (ms): 0.006      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.033      cpuTime (ms): 0.033      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.007      cpuTime (ms): 0.007      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_1219             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.022      cpuTime (ms): 0.022      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.010      cpuTime (ms): 0.010      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.076      cpuTime (ms): 0.076      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.057      cpuTime (ms): 0.057      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.007      cpuTime (ms): 0.007      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_1280             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.022      cpuTime (ms): 0.022      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.059      cpuTime (ms): 0.059      
+/stages/stages....   EXECUTED             layerType: VariadicSplit        execType: ref_f32              realTime (ms): 0.086      cpuTime (ms): 0.086      
+/stages/stages....   EXECUTED             layerType: Softmax              execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: ReduceSum            execType: jit_avx2_f32         realTime (ms): 0.007      cpuTime (ms): 0.007      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.032      cpuTime (ms): 0.032      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.007      cpuTime (ms): 0.007      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_1350             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.022      cpuTime (ms): 0.022      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.075      cpuTime (ms): 0.075      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.056      cpuTime (ms): 0.056      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.007      cpuTime (ms): 0.007      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_1411             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.022      cpuTime (ms): 0.022      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.010      cpuTime (ms): 0.010      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.059      cpuTime (ms): 0.059      
+/stages/stages....   EXECUTED             layerType: VariadicSplit        execType: ref_f32              realTime (ms): 0.086      cpuTime (ms): 0.086      
+/stages/stages....   EXECUTED             layerType: Softmax              execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: ReduceSum            execType: jit_avx2_f32         realTime (ms): 0.007      cpuTime (ms): 0.007      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.032      cpuTime (ms): 0.032      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.007      cpuTime (ms): 0.007      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_1481             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.022      cpuTime (ms): 0.022      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.075      cpuTime (ms): 0.075      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.056      cpuTime (ms): 0.056      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.007      cpuTime (ms): 0.007      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_1542             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.022      cpuTime (ms): 0.022      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.010      cpuTime (ms): 0.010      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.010      cpuTime (ms): 0.010      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.060      cpuTime (ms): 0.060      
+/stages/stages....   EXECUTED             layerType: VariadicSplit        execType: ref_f32              realTime (ms): 0.086      cpuTime (ms): 0.086      
+/stages/stages....   EXECUTED             layerType: Softmax              execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: ReduceSum            execType: jit_avx2_f32         realTime (ms): 0.007      cpuTime (ms): 0.007      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.008      cpuTime (ms): 0.008      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.032      cpuTime (ms): 0.032      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.008      cpuTime (ms): 0.008      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_1612             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.022      cpuTime (ms): 0.022      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.075      cpuTime (ms): 0.075      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.056      cpuTime (ms): 0.056      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.007      cpuTime (ms): 0.007      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_1673             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.022      cpuTime (ms): 0.022      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Transpose            execType: unknown_f32          realTime (ms): 0.015      cpuTime (ms): 0.015      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.008      cpuTime (ms): 0.008      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.057      cpuTime (ms): 0.057      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.247      cpuTime (ms): 0.247      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: GroupConvolution     execType: brgconv_avx2_dw_f32  realTime (ms): 0.021      cpuTime (ms): 0.021      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.096      cpuTime (ms): 0.096      
+/stages/stages....   EXECUTED             layerType: GroupConvolution     execType: brgconv_avx2_dw_f32  realTime (ms): 0.015      cpuTime (ms): 0.015      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.037      cpuTime (ms): 0.037      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Transpose            execType: unknown_f32          realTime (ms): 0.006      cpuTime (ms): 0.006      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_1918             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.037      cpuTime (ms): 0.037      
+/stages/stages....   EXECUTED             layerType: VariadicSplit        execType: ref_f32              realTime (ms): 0.138      cpuTime (ms): 0.138      
+/stages/stages....   EXECUTED             layerType: Softmax              execType: jit_avx2_f32         realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: ReduceSum            execType: jit_avx2_f32         realTime (ms): 0.008      cpuTime (ms): 0.008      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.021      cpuTime (ms): 0.021      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_1989             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.042      cpuTime (ms): 0.042      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.040      cpuTime (ms): 0.040      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_2050             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.036      cpuTime (ms): 0.036      
+/stages/stages....   EXECUTED             layerType: VariadicSplit        execType: ref_f32              realTime (ms): 0.137      cpuTime (ms): 0.137      
+/stages/stages....   EXECUTED             layerType: Softmax              execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: ReduceSum            execType: jit_avx2_f32         realTime (ms): 0.007      cpuTime (ms): 0.007      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.021      cpuTime (ms): 0.021      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_2120             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.040      cpuTime (ms): 0.040      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.037      cpuTime (ms): 0.037      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_2181             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.035      cpuTime (ms): 0.035      
+/stages/stages....   EXECUTED             layerType: VariadicSplit        execType: ref_f32              realTime (ms): 0.137      cpuTime (ms): 0.137      
+/stages/stages....   EXECUTED             layerType: Softmax              execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: ReduceSum            execType: jit_avx2_f32         realTime (ms): 0.007      cpuTime (ms): 0.007      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.021      cpuTime (ms): 0.021      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_2251             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.040      cpuTime (ms): 0.040      
+/stages/stages....   NOT_RUN              layerType: SwishCPU             execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.037      cpuTime (ms): 0.037      
+/stages/stages....   NOT_RUN              layerType: Add                  execType: undef                realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+MVN_2312             EXECUTED             layerType: MVN                  execType: jit_avx2_f32         realTime (ms): 0.009      cpuTime (ms): 0.009      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.005      cpuTime (ms): 0.005      
+/stages/stages....   EXECUTED             layerType: Subgraph             execType: jit_avx2_f32         realTime (ms): 0.003      cpuTime (ms): 0.003      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Transpose            execType: unknown_f32          realTime (ms): 0.008      cpuTime (ms): 0.008      
+/stages/stages....   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/stages/stages....   EXECUTED             layerType: Reorder              execType: jit_uni_f32          realTime (ms): 0.004      cpuTime (ms): 0.004      
+/stages/stages....   EXECUTED             layerType: Convolution          execType: brgconv_avx2_1x1_f32 realTime (ms): 0.035      cpuTime (ms): 0.035      
+/head/global_po...   EXECUTED             layerType: ReduceMean           execType: jit_avx2_f32         realTime (ms): 0.012      cpuTime (ms): 0.012      
+/head/global_po...   NOT_RUN              layerType: Reorder              execType: reorder_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+/head/global_po...   NOT_RUN              layerType: Reshape              execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+output               EXECUTED             layerType: FullyConnected       execType: gemm_mlas_f32        realTime (ms): 0.080      cpuTime (ms): 0.080      
+output/sink_port_0   NOT_RUN              layerType: Result               execType: unknown_f32          realTime (ms): 0.000      cpuTime (ms): 0.000      
+Total time:              10.774 milliseconds
+Total CPU time:          10.774 milliseconds
+
+Full device name: Intel(R) Core(TM) i7-10750H CPU @ 2.60GHz
+
+[ INFO ] Execution Devices: [ CPU ]
+[ INFO ] Count:               5419 iterations
+[ INFO ] Duration:            60006.98 ms
+[ INFO ] Latency:
+[ INFO ]    Median:           11.06 ms
+[ INFO ]    Average:          11.07 ms
+[ INFO ]    Min:              9.64 ms
+[ INFO ]    Max:              15.45 ms
+[ INFO ] Throughput:          90.31 FPS

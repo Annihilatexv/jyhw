@@ -1,0 +1,27 @@
+# started on Sat Sep  6 18:14:41 2025
+
+
+ Performance counter stats for '/usr/bin/python3 ./inferProfiler.py --modelPath /home/ghost/Code/OpenVINOCode/Model/mobileVitv/mobilevitv2_1x3x256x256.onnx --repeatTimes 1000':
+
+   391,723,475,581      instructions                     #    1.76  insn per cycle              (45.47%)
+   222,939,436,500      cycles                           #    3.224 GHz                         (45.51%)
+         69,143.65 msec cpu-clock                        #    5.908 CPUs utilized             
+    19,851,457,033      branch-instructions              #  287.105 M/sec                       (45.57%)
+        66,217,360      branch-misses                    #    0.33% of all branches             (45.60%)
+    12,644,101,355      cache-references                 #  182.867 M/sec                       (45.67%)
+       624,770,901      cache-misses                     #    4.94% of all cache refs           (36.48%)
+     9,930,562,902      L1-dcache-load-misses                                                   (36.42%)
+       780,074,896      LLC-loads                        #   11.282 M/sec                       (36.35%)
+        47,824,095      LLC-load-misses                  #    6.13% of all LL-cache accesses    (36.31%)
+   159,945,983,176      dTLB-loads                       #    2.313 G/sec                       (36.42%)
+        21,857,468      dTLB-load-misses                 #    0.01% of all dTLB cache accesses  (36.37%)
+             4,129      context-switches                 #   59.716 /sec                      
+            30,231      page-faults                      #  437.220 /sec                      
+    11,703,544,365 ns   duration_time                    #  169.264 M/sec                     
+
+      11.703544365 seconds time elapsed
+
+      65.727179000 seconds user
+       3.407217000 seconds sys
+
+

@@ -1,0 +1,78 @@
+[Step 1/11] Parsing and validating input arguments
+[ INFO ] Parsing input parameters
+[Step 2/11] Loading OpenVINO Runtime
+[ INFO ] OpenVINO:
+[ INFO ] Build ................................. 2025.4.0-19881-0a49c3257ff
+[ INFO ] 
+[ INFO ] Device info:
+[ INFO ] CPU
+[ INFO ] Build ................................. 2025.4.0-19881-0a49c3257ff
+[ INFO ] 
+[ INFO ] 
+[Step 3/11] Setting device configuration
+[ WARNING ] Performance hint was not explicitly specified in command line. Device(CPU) performance hint will be set to LATENCY.
+[Step 4/11] Reading model files
+[ INFO ] Loading model files
+[ INFO ] Read model took 37.21 ms
+[ INFO ] Original model I/O parameters:
+[ INFO ] Network inputs:
+[ INFO ]     images (node: images) : f32 / [...] / [1,3,640,640]
+[ INFO ] Network outputs:
+[ INFO ]     output0 (node: output0) : f32 / [...] / [1,84,8400]
+[Step 5/11] Resizing model to match image sizes and given batch
+[ WARNING ] images: layout is not set explicitly, so it is defaulted to NCHW. It is STRONGLY recommended to set layout manually to avoid further issues.
+[Step 6/11] Configuring input of the model
+[ INFO ] Model batch size: 1
+[ INFO ] Network inputs:
+[ INFO ]     images (node: images) : u8 / [N,C,H,W] / [1,3,640,640]
+[ INFO ] Network outputs:
+[ INFO ]     output0 (node: output0) : f32 / [...] / [1,84,8400]
+[Step 7/11] Loading the model to the device
+[ INFO ] Compile model took 135.43 ms
+[ INFO ] Start of compilation memory usage: Peak 225240 KB
+[ INFO ] End of compilation memory usage: Peak 673952 KB
+[ INFO ] Compile model ram used 448712 KB
+[Step 8/11] Querying optimal runtime parameters
+[ INFO ] Model:
+[ INFO ]   NETWORK_NAME: main_graph
+[ INFO ]   OPTIMAL_NUMBER_OF_INFER_REQUESTS: 1
+[ INFO ]   NUM_STREAMS: 1
+[ INFO ]   INFERENCE_NUM_THREADS: 6
+[ INFO ]   PERF_COUNT: NO
+[ INFO ]   INFERENCE_PRECISION_HINT: f32
+[ INFO ]   PERFORMANCE_HINT: LATENCY
+[ INFO ]   EXECUTION_MODE_HINT: PERFORMANCE
+[ INFO ]   PERFORMANCE_HINT_NUM_REQUESTS: 0
+[ INFO ]   ENABLE_CPU_PINNING: YES
+[ INFO ]   ENABLE_CPU_RESERVATION: NO
+[ INFO ]   SCHEDULING_CORE_TYPE: ANY_CORE
+[ INFO ]   MODEL_DISTRIBUTION_POLICY: 
+[ INFO ]   ENABLE_HYPER_THREADING: NO
+[ INFO ]   EXECUTION_DEVICES: CPU
+[ INFO ]   CPU_DENORMALS_OPTIMIZATION: NO
+[ INFO ]   LOG_LEVEL: LOG_NONE
+[ INFO ]   CPU_SPARSE_WEIGHTS_DECOMPRESSION_RATE: 1
+[ INFO ]   ENABLE_TENSOR_PARALLEL: NO
+[ INFO ]   DYNAMIC_QUANTIZATION_GROUP_SIZE: 32
+[ INFO ]   KV_CACHE_PRECISION: u8
+[ INFO ]   KEY_CACHE_PRECISION: u8
+[ INFO ]   VALUE_CACHE_PRECISION: u8
+[ INFO ]   KEY_CACHE_GROUP_SIZE: 0
+[ INFO ]   VALUE_CACHE_GROUP_SIZE: 0
+[Step 9/11] Creating infer requests and preparing input tensors
+[ WARNING ] No input files were given: all inputs will be filled with random values!
+[ INFO ] Test Config 0
+[ INFO ] images  ([N,C,H,W], u8, [1,3,640,640], static):	random (image/numpy array is expected)
+[Step 10/11] Measuring performance (Start inference synchronously, limits: 60000 ms duration)
+[ INFO ] Benchmarking in inference only mode (inputs filling are not included in measurement loop).
+[ INFO ] First inference took 33.94 ms
+[Step 11/11] Dumping statistics report
+[ INFO ] Execution Devices: [ CPU ]
+[ INFO ] Count:               1964 iterations
+[ INFO ] Duration:            60020.24 ms
+[ INFO ] Latency:
+[ INFO ]    Median:           30.38 ms
+[ INFO ]    Average:          30.56 ms
+[ INFO ]    Min:              26.40 ms
+[ INFO ]    Max:              47.59 ms
+[ INFO ] Throughput:          32.72 FPS

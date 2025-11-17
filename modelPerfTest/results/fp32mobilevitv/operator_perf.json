@@ -1,0 +1,1421 @@
+{
+    "total_inference_time_ms": 16.302999999999987,
+    "operator_performance": [
+        {
+            "name": "/stages/stages.1/stages.1.0/conv1_1x1/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 1.229,
+            "cpu_time_ms": 1.229
+        },
+        {
+            "name": "/stages/stages.1/stages.1.1/conv1_1x1/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.876,
+            "cpu_time_ms": 0.876
+        },
+        {
+            "name": "/stages/stages.2/stages.2.0/conv1_1x1/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.8360000000000001,
+            "cpu_time_ms": 0.8360000000000001
+        },
+        {
+            "name": "/stages/stages.3/stages.3.0/conv1_1x1/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.68,
+            "cpu_time_ms": 0.68
+        },
+        {
+            "name": "/stages/stages.1/stages.1.1/conv3_1x1/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.64,
+            "cpu_time_ms": 0.64
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/attn/Split",
+            "type": "VariadicSplit",
+            "real_time_ms": 0.555,
+            "cpu_time_ms": 0.555
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/attn/Split",
+            "type": "VariadicSplit",
+            "real_time_ms": 0.53,
+            "cpu_time_ms": 0.53
+        },
+        {
+            "name": "/stages/stages.1/stages.1.1/conv2_kxk/conv/Conv/WithoutBiases",
+            "type": "GroupConvolution",
+            "real_time_ms": 0.48700000000000004,
+            "cpu_time_ms": 0.48700000000000004
+        },
+        {
+            "name": "/stages/stages.0/stages.0.0/conv2_kxk/conv/Conv/WithoutBiases",
+            "type": "GroupConvolution",
+            "real_time_ms": 0.455,
+            "cpu_time_ms": 0.455
+        },
+        {
+            "name": "/stages/stages.0/stages.0.0/conv1_1x1/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.429,
+            "cpu_time_ms": 0.429
+        },
+        {
+            "name": "/stages/stages.4/stages.4.0/conv1_1x1/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.395,
+            "cpu_time_ms": 0.395
+        },
+        {
+            "name": "/stages/stages.1/stages.1.0/conv3_1x1/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.325,
+            "cpu_time_ms": 0.325
+        },
+        {
+            "name": "/stages/stages.2/stages.2.0/conv3_1x1/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.28200000000000003,
+            "cpu_time_ms": 0.28200000000000003
+        },
+        {
+            "name": "/stages/stages.0/stages.0.0/conv3_1x1/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.281,
+            "cpu_time_ms": 0.281
+        },
+        {
+            "name": "/stem/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.256,
+            "cpu_time_ms": 0.256
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/mlp/fc1/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.22,
+            "cpu_time_ms": 0.22
+        },
+        {
+            "name": "/stages/stages.3/stages.3.0/conv3_1x1/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.22,
+            "cpu_time_ms": 0.22
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/mlp/fc1/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.21000000000000002,
+            "cpu_time_ms": 0.21000000000000002
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/conv_1x1/Conv",
+            "type": "Convolution",
+            "real_time_ms": 0.16899999999999998,
+            "cpu_time_ms": 0.16899999999999998
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/mlp/fc2/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.161,
+            "cpu_time_ms": 0.161
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/conv_proj/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.157,
+            "cpu_time_ms": 0.157
+        },
+        {
+            "name": "/stages/stages.0/stages.0.0/conv3_1x1/conv/Conv/WithoutBiases_acdb_aBcd8b_/stages/stages.1/stages.1.0/conv1_1x1/conv/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.156,
+            "cpu_time_ms": 0.156
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.152,
+            "cpu_time_ms": 0.152
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.148,
+            "cpu_time_ms": 0.148
+        },
+        {
+            "name": "/stages/stages.2/stages.2.0/conv2_kxk/conv/Conv/WithoutBiases",
+            "type": "GroupConvolution",
+            "real_time_ms": 0.14300000000000002,
+            "cpu_time_ms": 0.14300000000000002
+        },
+        {
+            "name": "/stages/stages.4/stages.4.0/conv3_1x1/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.14200000000000002,
+            "cpu_time_ms": 0.14200000000000002
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/mlp/fc2/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.13899999999999998,
+            "cpu_time_ms": 0.13899999999999998
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/mlp/fc1/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.131,
+            "cpu_time_ms": 0.131
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/mlp/fc1/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.127,
+            "cpu_time_ms": 0.127
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/mlp/fc1/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.126,
+            "cpu_time_ms": 0.126
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/mlp/fc1/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.12300000000000001,
+            "cpu_time_ms": 0.12300000000000001
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/attn/out_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.12000000000000001,
+            "cpu_time_ms": 0.12000000000000001
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/conv_kxk/conv/Conv/WithoutBiases",
+            "type": "GroupConvolution",
+            "real_time_ms": 0.11699999999999999,
+            "cpu_time_ms": 0.11699999999999999
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/attn/Split",
+            "type": "VariadicSplit",
+            "real_time_ms": 0.10900000000000001,
+            "cpu_time_ms": 0.10900000000000001
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/attn/out_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.107,
+            "cpu_time_ms": 0.107
+        },
+        {
+            "name": "output",
+            "type": "FullyConnected",
+            "real_time_ms": 0.107,
+            "cpu_time_ms": 0.107
+        },
+        {
+            "name": "input_abcd_acdb_/stem/conv/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.104,
+            "cpu_time_ms": 0.104
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.103,
+            "cpu_time_ms": 0.103
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/attn/Split",
+            "type": "VariadicSplit",
+            "real_time_ms": 0.101,
+            "cpu_time_ms": 0.101
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/mlp/fc2/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.101,
+            "cpu_time_ms": 0.101
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/mlp/fc2/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.09899999999999999,
+            "cpu_time_ms": 0.09899999999999999
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/mlp/fc2/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.09899999999999999,
+            "cpu_time_ms": 0.09899999999999999
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.098,
+            "cpu_time_ms": 0.098
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.096,
+            "cpu_time_ms": 0.096
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/attn/Split",
+            "type": "VariadicSplit",
+            "real_time_ms": 0.096,
+            "cpu_time_ms": 0.096
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/attn/Split",
+            "type": "VariadicSplit",
+            "real_time_ms": 0.094,
+            "cpu_time_ms": 0.094
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.093,
+            "cpu_time_ms": 0.093
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/conv_proj/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.09000000000000001,
+            "cpu_time_ms": 0.09000000000000001
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/mlp/fc2/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.089,
+            "cpu_time_ms": 0.089
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/attn/Split",
+            "type": "VariadicSplit",
+            "real_time_ms": 0.085,
+            "cpu_time_ms": 0.085
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/attn/Split",
+            "type": "VariadicSplit",
+            "real_time_ms": 0.085,
+            "cpu_time_ms": 0.085
+        },
+        {
+            "name": "MVN_711",
+            "type": "MVN",
+            "real_time_ms": 0.083,
+            "cpu_time_ms": 0.083
+        },
+        {
+            "name": "MVN_842",
+            "type": "MVN",
+            "real_time_ms": 0.082,
+            "cpu_time_ms": 0.082
+        },
+        {
+            "name": "MVN_772",
+            "type": "MVN",
+            "real_time_ms": 0.081,
+            "cpu_time_ms": 0.081
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/conv_1x1/Conv",
+            "type": "Convolution",
+            "real_time_ms": 0.081,
+            "cpu_time_ms": 0.081
+        },
+        {
+            "name": "MVN_639",
+            "type": "MVN",
+            "real_time_ms": 0.08,
+            "cpu_time_ms": 0.08
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/attn/Split",
+            "type": "VariadicSplit",
+            "real_time_ms": 0.08,
+            "cpu_time_ms": 0.08
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/attn/out_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.078,
+            "cpu_time_ms": 0.078
+        },
+        {
+            "name": "MVN_903",
+            "type": "MVN",
+            "real_time_ms": 0.078,
+            "cpu_time_ms": 0.078
+        },
+        {
+            "name": "/stages/stages.1/stages.1.0/conv1_1x1/conv/Conv/WithoutBiases_aBcd8b_acdb_/stages/stages.1/stages.1.0/conv3_1x1/conv/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.074,
+            "cpu_time_ms": 0.074
+        },
+        {
+            "name": "/stages/stages.3/stages.3.0/conv2_kxk/conv/Conv/WithoutBiases",
+            "type": "GroupConvolution",
+            "real_time_ms": 0.07200000000000001,
+            "cpu_time_ms": 0.07200000000000001
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/mlp/fc1/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.06999999999999999,
+            "cpu_time_ms": 0.06999999999999999
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/mlp/fc1/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.06499999999999999,
+            "cpu_time_ms": 0.06499999999999999
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/mlp/fc1/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.062,
+            "cpu_time_ms": 0.062
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/mlp/fc2/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.057,
+            "cpu_time_ms": 0.057
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/attn/out_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.056,
+            "cpu_time_ms": 0.056
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.054,
+            "cpu_time_ms": 0.054
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/mlp/fc2/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.054,
+            "cpu_time_ms": 0.054
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/conv_1x1/Conv",
+            "type": "Convolution",
+            "real_time_ms": 0.053,
+            "cpu_time_ms": 0.053
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/Transpose_1",
+            "type": "Transpose",
+            "real_time_ms": 0.052,
+            "cpu_time_ms": 0.052
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.052,
+            "cpu_time_ms": 0.052
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/attn/out_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.051,
+            "cpu_time_ms": 0.051
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/mlp/fc2/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.051,
+            "cpu_time_ms": 0.051
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.051,
+            "cpu_time_ms": 0.051
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/attn/out_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.049,
+            "cpu_time_ms": 0.049
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/conv_kxk/conv/Conv/WithoutBiases",
+            "type": "GroupConvolution",
+            "real_time_ms": 0.048,
+            "cpu_time_ms": 0.048
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/conv_proj/conv/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.047,
+            "cpu_time_ms": 0.047
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/conv_1x1/Conv_acdb_abcd_/stages/stages.2/stages.2.1/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.044,
+            "cpu_time_ms": 0.044
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/attn/out_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.041,
+            "cpu_time_ms": 0.041
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/Transpose",
+            "type": "Transpose",
+            "real_time_ms": 0.037,
+            "cpu_time_ms": 0.037
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/attn/out_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.037,
+            "cpu_time_ms": 0.037
+        },
+        {
+            "name": "/stages/stages.4/stages.4.0/conv2_kxk/conv/Conv/WithoutBiases",
+            "type": "GroupConvolution",
+            "real_time_ms": 0.034,
+            "cpu_time_ms": 0.034
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/attn/out_proj/Conv/WithoutBiases_acdb_abcd_/stages/stages.2/stages.2.1/transformer/transformer.0/norm2/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.032,
+            "cpu_time_ms": 0.032
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/mlp/fc2/Conv/WithoutBiases_acdb_abcd_/stages/stages.2/stages.2.1/transformer/transformer.1/norm1/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.031,
+            "cpu_time_ms": 0.031
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/attn/out_proj/Conv/WithoutBiases_acdb_abcd_/stages/stages.2/stages.2.1/transformer/transformer.1/norm2/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.030000000000000002,
+            "cpu_time_ms": 0.030000000000000002
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/norm1/Add_abcd_acdb_/stages/stages.2/stages.2.1/transformer/transformer.0/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.029,
+            "cpu_time_ms": 0.029
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/norm1/Add_abcd_acdb_/stages/stages.2/stages.2.1/transformer/transformer.1/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.029,
+            "cpu_time_ms": 0.029
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/mlp/fc2/Conv/WithoutBiases_acdb_abcd_/stages/stages.2/stages.2.1/norm/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.029,
+            "cpu_time_ms": 0.029
+        },
+        {
+            "name": "MVN_1148",
+            "type": "MVN",
+            "real_time_ms": 0.029,
+            "cpu_time_ms": 0.029
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/norm2/Add_abcd_acdb_/stages/stages.3/stages.3.1/transformer/transformer.2/mlp/fc1/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.029,
+            "cpu_time_ms": 0.029
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/attn/out_proj/Conv/WithoutBiases",
+            "type": "Convolution",
+            "real_time_ms": 0.029,
+            "cpu_time_ms": 0.029
+        },
+        {
+            "name": "MVN_1481",
+            "type": "MVN",
+            "real_time_ms": 0.028,
+            "cpu_time_ms": 0.028
+        },
+        {
+            "name": "MVN_1542",
+            "type": "MVN",
+            "real_time_ms": 0.028,
+            "cpu_time_ms": 0.028
+        },
+        {
+            "name": "MVN_1219",
+            "type": "MVN",
+            "real_time_ms": 0.027,
+            "cpu_time_ms": 0.027
+        },
+        {
+            "name": "MVN_1280",
+            "type": "MVN",
+            "real_time_ms": 0.027,
+            "cpu_time_ms": 0.027
+        },
+        {
+            "name": "MVN_1350",
+            "type": "MVN",
+            "real_time_ms": 0.027,
+            "cpu_time_ms": 0.027
+        },
+        {
+            "name": "MVN_1411",
+            "type": "MVN",
+            "real_time_ms": 0.027,
+            "cpu_time_ms": 0.027
+        },
+        {
+            "name": "MVN_1612",
+            "type": "MVN",
+            "real_time_ms": 0.027,
+            "cpu_time_ms": 0.027
+        },
+        {
+            "name": "MVN_1673",
+            "type": "MVN",
+            "real_time_ms": 0.027,
+            "cpu_time_ms": 0.027
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/Transpose_1",
+            "type": "Transpose",
+            "real_time_ms": 0.027,
+            "cpu_time_ms": 0.027
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/conv_kxk/conv/Conv/WithoutBiases",
+            "type": "GroupConvolution",
+            "real_time_ms": 0.024,
+            "cpu_time_ms": 0.024
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/norm2/Add_abcd_acdb_/stages/stages.2/stages.2.1/transformer/transformer.0/mlp/fc1/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.022,
+            "cpu_time_ms": 0.022
+        },
+        {
+            "name": "Multiply_6434_abcd_acdb_/stages/stages.2/stages.2.1/transformer/transformer.0/attn/out_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.02,
+            "cpu_time_ms": 0.02
+        },
+        {
+            "name": "Multiply_6506_abcd_acdb_/stages/stages.2/stages.2.1/transformer/transformer.1/attn/out_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.02,
+            "cpu_time_ms": 0.02
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/norm2/Add_abcd_acdb_/stages/stages.2/stages.2.1/transformer/transformer.1/mlp/fc1/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.02,
+            "cpu_time_ms": 0.02
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/Reshape_3_abcd_acdb_/stages/stages.2/stages.2.1/conv_proj/conv/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.019,
+            "cpu_time_ms": 0.019
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/Reshape_1_abcd_acdb_/stages/stages.2/stages.2.1/transformer/transformer.0/attn/out_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.018000000000000002,
+            "cpu_time_ms": 0.018000000000000002
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/norm1/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.017,
+            "cpu_time_ms": 0.017
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/mlp/fc2/Conv/WithoutBiases_acdb_abcd_/stages/stages.3/stages.3.1/transformer/transformer.2/norm1/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.017,
+            "cpu_time_ms": 0.017
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/Transpose",
+            "type": "Transpose",
+            "real_time_ms": 0.016,
+            "cpu_time_ms": 0.016
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/norm2/Add_abcd_acdb_/stages/stages.3/stages.3.1/transformer/transformer.1/mlp/fc1/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.016,
+            "cpu_time_ms": 0.016
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/attn/ReduceSum",
+            "type": "ReduceSum",
+            "real_time_ms": 0.015000000000000001,
+            "cpu_time_ms": 0.015000000000000001
+        },
+        {
+            "name": "/head/global_pool/pool/GlobalAveragePool",
+            "type": "ReduceMean",
+            "real_time_ms": 0.014,
+            "cpu_time_ms": 0.014
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/attn/ReduceSum",
+            "type": "ReduceSum",
+            "real_time_ms": 0.013,
+            "cpu_time_ms": 0.013
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/norm1/Reshape_1___/stages/stages.2/stages.2.1/transformer/transformer.1/norm1/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.013,
+            "cpu_time_ms": 0.013
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/norm2/Reshape_1___/stages/stages.2/stages.2.1/transformer/transformer.0/norm2/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.012,
+            "cpu_time_ms": 0.012
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/norm1/Add_abcd_acdb_/stages/stages.3/stages.3.1/transformer/transformer.1/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.012,
+            "cpu_time_ms": 0.012
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/norm1/Add_abcd_acdb_/stages/stages.3/stages.3.1/transformer/transformer.2/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.012,
+            "cpu_time_ms": 0.012
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/attn/out_proj/Conv/WithoutBiases_acdb_abcd_/stages/stages.3/stages.3.1/transformer/transformer.2/norm2/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.012,
+            "cpu_time_ms": 0.012
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/Transpose_1",
+            "type": "Transpose",
+            "real_time_ms": 0.012,
+            "cpu_time_ms": 0.012
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/attn/Mul",
+            "type": "Subgraph",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/norm2/Reshape_1___/stages/stages.2/stages.2.1/transformer/transformer.1/norm2/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/norm/Reshape_1___/stages/stages.2/stages.2.1/norm/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/norm1/Add_abcd_acdb_/stages/stages.3/stages.3.1/transformer/transformer.0/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "Multiply_6722_abcd_acdb_/stages/stages.3/stages.3.1/transformer/transformer.2/attn/out_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/norm1/Add_abcd_acdb_/stages/stages.3/stages.3.1/transformer/transformer.3/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/norm2/Add_abcd_acdb_/stages/stages.3/stages.3.1/transformer/transformer.3/mlp/fc1/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/mlp/fc2/Conv/WithoutBiases_acdb_abcd_/stages/stages.3/stages.3.1/norm/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "MVN_1918",
+            "type": "MVN",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "MVN_1989",
+            "type": "MVN",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "MVN_2050",
+            "type": "MVN",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "MVN_2120",
+            "type": "MVN",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "MVN_2181",
+            "type": "MVN",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "MVN_2251",
+            "type": "MVN",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "MVN_2312",
+            "type": "MVN",
+            "real_time_ms": 0.011,
+            "cpu_time_ms": 0.011
+        },
+        {
+            "name": "Multiply_6434",
+            "type": "Subgraph",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/attn/Mul",
+            "type": "Subgraph",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "Multiply_6506",
+            "type": "Subgraph",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/conv_1x1/Conv_acdb_abcd_/stages/stages.3/stages.3.1/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/norm1/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/attn/ReduceSum",
+            "type": "ReduceSum",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "Multiply_6578_abcd_acdb_/stages/stages.3/stages.3.1/transformer/transformer.0/attn/out_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/attn/out_proj/Conv/WithoutBiases_acdb_abcd_/stages/stages.3/stages.3.1/transformer/transformer.0/norm2/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/norm2/Reshape_1___/stages/stages.3/stages.3.1/transformer/transformer.0/norm2/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/norm2/Add_abcd_acdb_/stages/stages.3/stages.3.1/transformer/transformer.0/mlp/fc1/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/mlp/fc2/Conv/WithoutBiases_acdb_abcd_/stages/stages.3/stages.3.1/transformer/transformer.1/norm1/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/norm1/Reshape_1___/stages/stages.3/stages.3.1/transformer/transformer.1/norm1/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "Multiply_6650_abcd_acdb_/stages/stages.3/stages.3.1/transformer/transformer.1/attn/out_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/attn/out_proj/Conv/WithoutBiases_acdb_abcd_/stages/stages.3/stages.3.1/transformer/transformer.1/norm2/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/norm2/Reshape_1___/stages/stages.3/stages.3.1/transformer/transformer.1/norm2/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/norm1/Reshape_1___/stages/stages.3/stages.3.1/transformer/transformer.2/norm1/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/norm2/Reshape_1___/stages/stages.3/stages.3.1/transformer/transformer.2/norm2/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/mlp/fc2/Conv/WithoutBiases_acdb_abcd_/stages/stages.3/stages.3.1/transformer/transformer.3/norm1/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/norm1/Reshape_1___/stages/stages.3/stages.3.1/transformer/transformer.3/norm1/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/attn/ReduceSum",
+            "type": "ReduceSum",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "Multiply_6794_abcd_acdb_/stages/stages.3/stages.3.1/transformer/transformer.3/attn/out_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/attn/out_proj/Conv/WithoutBiases_acdb_abcd_/stages/stages.3/stages.3.1/transformer/transformer.3/norm2/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/norm2/Reshape_1___/stages/stages.3/stages.3.1/transformer/transformer.3/norm2/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/norm/Reshape_1___/stages/stages.3/stages.3.1/norm/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/Reshape_3_abcd_acdb_/stages/stages.3/stages.3.1/conv_proj/conv/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/Transpose",
+            "type": "Transpose",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/attn/ReduceSum",
+            "type": "ReduceSum",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/attn/ReduceSum",
+            "type": "ReduceSum",
+            "real_time_ms": 0.01,
+            "cpu_time_ms": 0.01
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/Reshape_1___/stages/stages.2/stages.2.1/transformer/transformer.0/norm1/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.009000000000000001,
+            "cpu_time_ms": 0.009000000000000001
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/attn/Softmax",
+            "type": "Softmax",
+            "real_time_ms": 0.009000000000000001,
+            "cpu_time_ms": 0.009000000000000001
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/attn/ReduceSum",
+            "type": "ReduceSum",
+            "real_time_ms": 0.009000000000000001,
+            "cpu_time_ms": 0.009000000000000001
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/attn/ReduceSum",
+            "type": "ReduceSum",
+            "real_time_ms": 0.009000000000000001,
+            "cpu_time_ms": 0.009000000000000001
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/attn/ReduceSum",
+            "type": "ReduceSum",
+            "real_time_ms": 0.009000000000000001,
+            "cpu_time_ms": 0.009000000000000001
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/Reshape_1_abcd_acdb_/stages/stages.3/stages.3.1/transformer/transformer.0/attn/out_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.008,
+            "cpu_time_ms": 0.008
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.0/norm2/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.007,
+            "cpu_time_ms": 0.007
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/norm1/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.007,
+            "cpu_time_ms": 0.007
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/norm2/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.007,
+            "cpu_time_ms": 0.007
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/attn/Mul",
+            "type": "Subgraph",
+            "real_time_ms": 0.007,
+            "cpu_time_ms": 0.007
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/attn/Mul",
+            "type": "Subgraph",
+            "real_time_ms": 0.007,
+            "cpu_time_ms": 0.007
+        },
+        {
+            "name": "Multiply_6794",
+            "type": "Subgraph",
+            "real_time_ms": 0.007,
+            "cpu_time_ms": 0.007
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/norm1/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.007,
+            "cpu_time_ms": 0.007
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/norm2/Reshape_1___/stages/stages.4/stages.4.1/transformer/transformer.2/norm2/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.007,
+            "cpu_time_ms": 0.007
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/transformer/transformer.1/attn/Softmax",
+            "type": "Softmax",
+            "real_time_ms": 0.006,
+            "cpu_time_ms": 0.006
+        },
+        {
+            "name": "/stages/stages.2/stages.2.1/norm/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.006,
+            "cpu_time_ms": 0.006
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/attn/Softmax",
+            "type": "Softmax",
+            "real_time_ms": 0.006,
+            "cpu_time_ms": 0.006
+        },
+        {
+            "name": "Multiply_6578",
+            "type": "Subgraph",
+            "real_time_ms": 0.006,
+            "cpu_time_ms": 0.006
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/attn/Mul",
+            "type": "Subgraph",
+            "real_time_ms": 0.006,
+            "cpu_time_ms": 0.006
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/attn/Mul",
+            "type": "Subgraph",
+            "real_time_ms": 0.006,
+            "cpu_time_ms": 0.006
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/conv_1x1/Conv_acdb_abcd_/stages/stages.4/stages.4.1/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.006,
+            "cpu_time_ms": 0.006
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/norm1/Add_abcd_acdb_/stages/stages.4/stages.4.1/transformer/transformer.0/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.006,
+            "cpu_time_ms": 0.006
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/attn/out_proj/Conv/WithoutBiases_acdb_abcd_/stages/stages.4/stages.4.1/transformer/transformer.0/norm2/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.006,
+            "cpu_time_ms": 0.006
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/norm2/Reshape_1___/stages/stages.4/stages.4.1/transformer/transformer.0/norm2/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.006,
+            "cpu_time_ms": 0.006
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/attn/out_proj/Conv/WithoutBiases_acdb_abcd_/stages/stages.4/stages.4.1/transformer/transformer.2/norm2/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.006,
+            "cpu_time_ms": 0.006
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/Reshape_3_abcd_acdb_/stages/stages.4/stages.4.1/conv_proj/conv/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.006,
+            "cpu_time_ms": 0.006
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/Reshape_1___/stages/stages.3/stages.3.1/transformer/transformer.0/norm1/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/attn/Softmax",
+            "type": "Softmax",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "Multiply_6650",
+            "type": "Subgraph",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/norm2/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/norm1/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "Multiply_6722",
+            "type": "Subgraph",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/norm2/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/norm/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/attn/Softmax",
+            "type": "Softmax",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/attn/Mul",
+            "type": "Subgraph",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "Multiply_6866_abcd_acdb_/stages/stages.4/stages.4.1/transformer/transformer.0/attn/out_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/norm2/Add_abcd_acdb_/stages/stages.4/stages.4.1/transformer/transformer.0/mlp/fc1/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/mlp/fc2/Conv/WithoutBiases_acdb_abcd_/stages/stages.4/stages.4.1/transformer/transformer.1/norm1/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/norm1/Reshape_1___/stages/stages.4/stages.4.1/transformer/transformer.1/norm1/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/norm1/Add_abcd_acdb_/stages/stages.4/stages.4.1/transformer/transformer.1/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "Multiply_6938_abcd_acdb_/stages/stages.4/stages.4.1/transformer/transformer.1/attn/out_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/attn/out_proj/Conv/WithoutBiases_acdb_abcd_/stages/stages.4/stages.4.1/transformer/transformer.1/norm2/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/norm2/Reshape_1___/stages/stages.4/stages.4.1/transformer/transformer.1/norm2/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/norm2/Add_abcd_acdb_/stages/stages.4/stages.4.1/transformer/transformer.1/mlp/fc1/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/mlp/fc2/Conv/WithoutBiases_acdb_abcd_/stages/stages.4/stages.4.1/transformer/transformer.2/norm1/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/norm1/Reshape_1___/stages/stages.4/stages.4.1/transformer/transformer.2/norm1/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/norm1/Add_abcd_acdb_/stages/stages.4/stages.4.1/transformer/transformer.2/attn/qkv_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "Multiply_7010_abcd_acdb_/stages/stages.4/stages.4.1/transformer/transformer.2/attn/out_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/norm2/Add_abcd_acdb_/stages/stages.4/stages.4.1/transformer/transformer.2/mlp/fc1/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/mlp/fc2/Conv/WithoutBiases_acdb_abcd_/stages/stages.4/stages.4.1/norm/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/norm/Reshape_1___/stages/stages.4/stages.4.1/norm/Add",
+            "type": "Reorder",
+            "real_time_ms": 0.005,
+            "cpu_time_ms": 0.005
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.0/norm2/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.1/norm1/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.2/attn/Softmax",
+            "type": "Softmax",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/norm1/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/attn/Softmax",
+            "type": "Softmax",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.3/stages.3.1/transformer/transformer.3/norm2/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/Reshape_1___/stages/stages.4/stages.4.1/transformer/transformer.0/norm1/Reshape",
+            "type": "Reorder",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "Multiply_6866",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/Reshape_1_abcd_acdb_/stages/stages.4/stages.4.1/transformer/transformer.0/attn/out_proj/Conv/WithoutBiases",
+            "type": "Reorder",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.0/norm2/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/norm1/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/attn/Softmax",
+            "type": "Softmax",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/attn/Mul",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "Multiply_6938",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.1/norm2/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/norm1/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/attn/Softmax",
+            "type": "Softmax",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/attn/Mul",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "Multiply_7010",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/transformer/transformer.2/norm2/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        },
+        {
+            "name": "/stages/stages.4/stages.4.1/norm/Add",
+            "type": "Subgraph",
+            "real_time_ms": 0.004,
+            "cpu_time_ms": 0.004
+        }
+    ]
+}

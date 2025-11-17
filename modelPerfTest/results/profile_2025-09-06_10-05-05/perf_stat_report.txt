@@ -1,0 +1,27 @@
+# started on Sat Sep  6 10:05:05 2025
+
+
+ Performance counter stats for '/usr/bin/python3 ./inferProfiler.py --modelPath /home/ghost/Code/OpenVINOCode/Model/yolov8n/yolov8n.onnx --repeatTimes 0':
+
+     7,701,097,602      instructions                     #    1.25  insn per cycle              (48.27%)
+     6,177,963,921      cycles                           #    3.183 GHz                         (49.78%)
+          1,941.07 msec cpu-clock                        #    4.284 CPUs utilized             
+     1,244,627,650      branch-instructions              #  641.206 M/sec                       (50.71%)
+         8,685,404      branch-misses                    #    0.70% of all branches             (51.37%)
+       104,914,003      cache-references                 #   54.049 M/sec                       (51.31%)
+        12,292,048      cache-misses                     #   11.72% of all cache refs           (39.57%)
+        85,643,601      L1-dcache-load-misses                                                   (36.37%)
+         9,764,766      LLC-loads                        #    5.031 M/sec                       (33.05%)
+         1,233,775      LLC-load-misses                  #   12.63% of all LL-cache accesses    (32.98%)
+     2,257,520,425      dTLB-loads                       #    1.163 G/sec                       (35.67%)
+           278,316      dTLB-load-misses                 #    0.01% of all dTLB cache accesses  (39.82%)
+               469      context-switches                 #  241.619 /sec                      
+            34,442      page-faults                      #   17.744 K/sec                     
+       453,085,539 ns   duration_time                    #  233.420 M/sec                     
+
+       0.453085539 seconds time elapsed
+
+       0.771364000 seconds user
+       1.171726000 seconds sys
+
+
